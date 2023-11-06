@@ -1,0 +1,557 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 540px;
+  height: 315px;
+  background-color: var(--background);
+  transition: background-color 1s;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+:root {
+  --background: white;
+  --color: black;
+  --areas: #ebecef;
+  --darkblue: darkblue;
+  --task-hover: rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fade_in {
+  to {
+    opacity: 0%;
+  }
+}
+@keyframes fade_out {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.container {
+  display: none;
+  width: 540px;
+  border-radius: 8px;
+  height: 315px;
+  background-color: var(--background);
+  transition: background-color 1s;
+  position: relative;
+  padding-top: 1px;
+}
+
+.container .top h1 {
+  font-size: 26px;
+  transition: color 1s;
+  color: var(--darkblue);
+  font-weight: 700;
+  text-align: center;
+  user-select: none;
+  margin: 0;
+  margin-top: 10px;
+}
+.container .top h2 {
+  font-size: 12px;
+  transition: color 1s;
+  margin-bottom: 15px;
+  color: var(--color);
+  letter-spacing: 1px;
+  user-select: none;
+  margin-top: 5px;
+}
+.container .top hr {
+  outline: none;
+  border-top: 1px solid #868e96;
+  margin: 0 auto;
+  width: 90%;
+  margin-bottom: 15px;
+}
+
+.container .bottom {
+  display: block;
+  animation: fade_out 1s;
+}
+.container .bottom-task {
+  display: none;
+  position: relative;
+  animation: fade_out 1s;
+}
+.container .bottom-task .bottom-back {
+  width: 25px;
+  position: absolute;
+  top: 3px;
+  left: 20px;
+  cursor: pointer;
+  stroke: var(--color);
+  transition: stroke 1.5s;
+}
+.container .bottom-task .bottom-back:hover {
+  stroke: red;
+}
+.container .bottom-task h2 {
+  padding-left: 60px;
+  transition: color 1s;
+  color: var(--color);
+  padding-top: 30px;
+  font-size: 20px;
+}
+.container .bottom-task h3 {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  padding-left: 60px;
+  transition: color 1s;
+  padding-top: 10px;
+  color: var(--color);
+  padding-bottom: 10px;
+  display: inline;
+}
+.container .bottom-task p {
+  color: var(--color);
+  transition: color 1s;
+  display: inline;
+}
+.container .bottom-task textarea {
+  display: block;
+  padding: 5px 10px;
+  font-size: 16px;
+  letter-spacing: 0.6px;
+  margin-left: 75px;
+  color: var(--color);
+  margin-top: 10px;
+  resize: none;
+  transition: background-color 1s, color 1s;
+  background-color: var(--background);
+  outline: none;
+  border: 0;
+  margin-bottom: 10px;
+}
+
+.container .bottom-task textarea::-webkit-scrollbar {
+  width: 10px;
+}
+.container .bottom-task textarea::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.container .bottom-task textarea::-webkit-scrollbar-thumb:hover {
+  background: #495057;
+}
+.container .bottom-task textarea::-webkit-scrollbar-thumb {
+  background: #868e96;
+  border: 0;
+  border-radius: 8px;
+}
+
+.container .bottom-task div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  width: 70%;
+  margin: 0 auto;
+}
+.container .bottom-task input {
+  height: 30px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.container .add-task {
+  background-color: var(--areas);
+  transition: background-color 1s;
+  box-sizing: border-box;
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 25px;
+  margin: 0 auto;
+}
+.container .add-task input {
+  outline: none;
+  font-size: 16px;
+  border: none;
+  transition: color 1s;
+  color: var(--color);
+  background-color: transparent;
+  padding: 15px 20px;
+  width: 100%;
+}
+.container .add-task button {
+  background-color: #f2573e;
+  transition: color 1s;
+  padding: 10px 45px;
+  border-radius: 25px;
+  cursor: pointer;
+  color: var(--background);
+  font-size: 17px;
+  border: 0;
+}
+.container .to-do {
+  width: 440px;
+  height: 140px;
+  margin: 20px auto;
+  overflow-y: auto;
+}
+.container .to-do::-webkit-scrollbar {
+  width: 5px;
+}
+.container .to-do::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.container .to-do::-webkit-scrollbar-thumb:hover {
+  background: #495057;
+}
+.container .to-do::-webkit-scrollbar-thumb {
+  background: #868e96;
+  border: 0;
+  border-radius: 8px;
+}
+
+.container .to-do .tasks {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  padding: 15px 20px;
+  align-items: center;
+  cursor: default;
+  border-radius: 4px;
+  transition: background-color 1s;
+}
+.container .to-do .tasks:hover {
+  background-color: var(--task-hover);
+}
+.container .to-do .tasks .task-check {
+  margin-right: 15px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+  background-color: #333;
+  border-radius: 80px;
+  outline: none;
+  border-radius: 8px;
+}
+.container .to-do .tasks img {
+  width: 24px;
+  margin-left: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+.container .to-do .tasks svg {
+  width: 24px;
+  transition: stroke 1s;
+  margin-left: 20px;
+  cursor: pointer;
+  stroke: var(--color);
+  user-select: none;
+  transition: stroke 1s;
+}
+.container .to-do .tasks svg:hover {
+  stroke: green;
+}
+.container .to-do .tasks .del:hover {
+  stroke: red;
+}
+.container .to-do .tasks p {
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  color: var(--color);
+  transition: color 1s;
+}
+.container #lock {
+  width: 25px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  transition: stroke 1s;
+  stroke: var(--color);
+}
+.container #theme {
+  width: 25px;
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  cursor: pointer;
+  stroke: var(--color);
+  transition: transform 1s, stroke 1s;
+}
+.container #theme:hover {
+  transform: rotate(360deg);
+}
+.container #lock {
+  width: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  transition: stroke 1s;
+  stroke: var(--color);
+}
+.show-msg {
+  display: none;
+  animation: fade_out 0.5s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.show-msg .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  opacity: 60%;
+  top: 0;
+  border-radius: 8px;
+}
+
+.show-msg .box {
+  position: absolute;
+  width: 230px;
+  height: 150px;
+  height: auto;
+  border-radius: 4px;
+  background-color: var(--background);
+  transition: background-color 1s;
+  /* margin: 155px 90px 0 0; */
+  margin-left: 155px;
+  margin-top: 80px;
+  top: 0;
+}
+
+.show-msg .box div {
+  display: flex;
+  justify-content: space-around;
+}
+.show-msg .box div img {
+  height: 48px;
+}
+.show-msg .box h1 {
+  font-size: 22px;
+  color: red;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  text-align: center;
+}
+.show-msg .box p {
+  margin-top: 0;
+  margin-left: 15px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  transition: color 1s;
+  color: var(--darkblue);
+}
+.show-msg .box button {
+  font-size: 16px;
+  width: 76px;
+  cursor: pointer;
+  margin-top: 10px;
+  border: none;
+  background-color: #f2573e;
+  border: 2px #f2573e solid;
+  color: var(--background);
+  border-radius: 2px;
+  font-weight: 500;
+  padding: 5px 20px;
+  margin-left: 77px;
+  margin-bottom: 15px;
+  transition: background-color 1s, color 1s;
+}
+
+.show-msg .box button:hover {
+  background-color: var(--background);
+  color: #f2573e;
+}
+
+/* ##########################EDIT PAGE ########################### */
+.edit {
+  display: none;
+  width: 540px;
+  border-radius: 8px;
+  height: 315px;
+  background-color: var(--background);
+  position: relative;
+  padding-top: 1px;
+}
+
+.edit div:first-child {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.edit svg {
+  height: 30px;
+  margin-left: 10px;
+  margin-top: 10px;
+  stroke: var(--color);
+  cursor: pointer;
+}
+.edit h1 {
+  font-size: 25px;
+  margin-top: 25px;
+  color: var(--darkblue);
+  letter-spacing: 1px;
+  justify-self: center;
+  margin-bottom: 10px;
+  cursor: default;
+}
+.edit h3 {
+  color: darkcyan;
+  font-size: 19px;
+  margin-left: 30px;
+  margin-bottom: 0;
+  cursor: default;
+}
+.edit p {
+  color: #868e96;
+  font-size: 11px;
+  margin-top: 0;
+  margin-right: 40px;
+  margin-bottom: 10px;
+}
+.edit textarea {
+  font-size: 16px;
+  outline: none;
+  color: var(--color);
+  border: 0;
+  background-color: var(--areas);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  margin-left: 50px;
+  resize: none;
+}
+.edit .options {
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+  column-gap: 30px;
+  margin-top: 10px;
+}
+.edit .options div {
+  display: flex;
+  background-color: blue;
+  width: 90px;
+  border-radius: 8px;
+  align-items: center;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+.edit .options div img {
+  height: 30px;
+}
+.edit .options div p {
+  color: var(--color);
+  font-size: 18px;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+.edit #edit-ss {
+  color: white;
+}
+
+/* ##########################EDIT PAGE ########################### */
+
+/* ##########################LOCK PAGE ########################### */
+.lock {
+  display: none;
+  width: 540px;
+  border-radius: 8px;
+  height: 315px;
+  background-color: var(--background);
+  position: relative;
+  padding-top: 1px;
+}
+.lock h1 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  font-size: 25px;
+  color: var(--color);
+}
+.lock input {
+  background-color: transparent;
+  font-size: 20px;
+  border: 0;
+  outline: 0;
+  color: var(--color);
+  margin-left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  letter-spacing: 2px;
+  margin-top: 30px;
+}
+.lock svg {
+  width: 100px;
+  color: var(--color);
+  margin-left: 50%;
+  transform: translate(-50%);
+  margin-top: 10px;
+}
+/* ##########################LOCK PAGE ########################### */
+
+/* YOU CAN START FROM HERE */
+
+.login {
+  display: none;
+  border-radius: 8px;
+  background-color: var(--background);
+  height: 315px;
+  width: 500px;
+  padding: 1rem 2rem;
+  position: relative;
+  box-shadow: 1px 1px 20px 2px rgba(128, 128, 128, 0.297);
+}
+
+.login h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.input-box {
+  height: 150px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.input-box input {
+  border: none;
+  background-color: whitesmoke;
+  width: 90%;
+  height: 50px;
+  padding-left: 1rem;
+  border-radius: 5px;
+}
+
+.login button {
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 1rem;
+  background-color: #f2573e;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.login button:hover {
+  background-color: #ff563c;
+}
+
+.login a {
+  text-decoration: none;
+  color: gray;
+  position: absolute;
+  bottom: 4rem;
+  left: 2rem;
+}

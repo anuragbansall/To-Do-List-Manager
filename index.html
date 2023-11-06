@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="login">
+      <h2>Welcome to To-Do</h2>
+      <div class="input-box">
+        <input
+          type="text"
+          placeholder="username"
+          id="username"
+          autocomplete="off"
+        />
+        <input
+          type="password"
+          placeholder="password"
+          id="password"
+          autocomplete="off"
+        />
+      </div>
+      <button id="login">Log in</button>
+    </div>
+    <div class="container">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        id="lock"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+        />
+        <title id="look">Lock Off</title>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        id="theme"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
+        />
+        <title id="thum">Light Mode</title>
+      </svg>
+      <div class="top">
+        <h1>To - Do Lists 📒</h1>
+        <h2 id="welcome" align="center"></h2>
+        <hr />
+      </div>
+      <div class="bottom">
+        <div class="add-task">
+          <input id="taskAdd" placeholder="Add your task" />
+          <button id="task-add-button">Add</button>
+        </div>
+
+        <div class="to-do"></div>
+        <div class="show-msg">
+          <div class="img"></div>
+          <div class="box">
+            <div>
+              <img src="error.png" />
+              <h1 id="msg-title">title</h1>
+            </div>
+            <p id="msg-content">content goes here</p>
+            <button id="msg-button">Okay</button>
+          </div>
+        </div>
+      </div>
+      <div class="bottom-task">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="bottom-back"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+          />
+          <title>Go Back !</title>
+        </svg>
+        <h2>Your To-Do ;</h2>
+        <textarea cols="46" rows="3" class="textar"></textarea>
+        <h3>Priority ;</h3>
+        <div>
+          <input type="radio" name="priority" />
+          <input type="radio" name="priority" checked />
+          <input type="radio" name="priority" />
+          <p>Important</p>
+          <p>Normal</p>
+          <p>Low</p>
+        </div>
+      </div>
+    </div>
+    <div class="edit">
+      <div>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          id="edit-back"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+          />
+        </svg>
+
+        <h1>Edit your To-Do's</h1>
+      </div>
+      <h3>Your To-Do :</h3>
+      <p align="right" id="edit-date">Thursday 13:01, 5 november 2023</p>
+      <textarea name="" id="edit-text" cols="50" rows="6"></textarea>
+      <div class="options">
+        <div id="edit-save">
+          <img src="save.png" alt="" />
+          <p id="edit-ss">Save</p>
+        </div>
+      </div>
+    </div>
+    <div class="lock">
+      <h1 align="center">Please enter the password to continue</h1>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+        />
+      </svg>
+      <input
+        type="password"
+        id="lock-input"
+        placeholder="Enter password here"
+      />
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
